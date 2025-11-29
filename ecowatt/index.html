@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="icon/icon.png" type="image/x-icon" />
+    <!--Agregamos un icono-->
     <title>EcoWatt App</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
@@ -48,14 +50,27 @@
 
         <div class="device-item">
           <div class="device-item-name">
-            <p class="device-item-name-title">Refrigerador</p>
+            <input
+              type="text"
+              class="device-item-name-title"
+              value="Refrigerador"
+            />
             <p class="device-item-name-text">3.60 kWh/día — $3240/día</p>
           </div>
-
           <div class="device-inputs">
+            <input
+              type="number"
+              class="qty"
+              value="1"
+              min="1"
+              max="10"
+              title="Cantidad de equipos"
+            />
+            <label>und</label>
+
             <input type="number" class="watt" value="100" placeholder="w" />
             <label>w</label>
-            <input type="number" class="hours" value="24" />
+            <input type="number" class="hours" value="24" min="1" max="24" />
             <label>hrs/dia</label>
 
             <div class="device-item-remove">
@@ -66,15 +81,23 @@
 
         <div class="device-item">
           <div class="device-item-name">
-            <p class="device-item-name-title">Televisor</p>
+            <input
+              type="text"
+              class="device-item-name-title"
+              placeholder="Escribe nombre del equipo"
+              value="Televisor"
+            />
             <p class="device-item-name-text">3.60 kWh/día — $3240/día</p>
           </div>
 
           <div class="device-inputs">
+            <input type="number" class="qty" value="2" min="1" max="10" />
+            <label>und</label>
+
             <input type="number" class="watt" value="100" placeholder="w" />
             <label>w</label>
 
-            <input type="number" class="hours" value="24" />
+            <input type="number" class="hours" value="4" min="1" max="24" />
             <label>hrs/dia</label>
 
             <div class="device-item-remove">
@@ -84,15 +107,22 @@
         </div>
         <div class="device-item">
           <div class="device-item-name">
-            <p class="device-item-name-title">Lavadora</p>
+            <input
+              type="text"
+              class="device-item-name-title"
+              value="Bombillo Led"
+            />
             <p class="device-item-name-text">3.60 kWh/día — $3240/día</p>
           </div>
 
           <div class="device-inputs">
-            <input type="number" class="watt" value="100" placeholder="w" />
+            <input type="number" class="qty" value="6" min="1" max="10" />
+            <label>und</label>
+
+            <input type="number" class="watt" value="30" placeholder="w" />
             <label>w</label>
 
-            <input type="number" class="hours" value="24" />
+            <input type="number" class="hours" value="6" min="1" max="24" />
             <label>hrs/dia</label>
 
             <div class="device-item-remove">
@@ -100,21 +130,8 @@
             </div>
           </div>
         </div>
-        <br />
 
-        <!--Creamos el input tipo rango-->
-        <label class="ahorro-bar" for="ahorro-bar">
-          Objetivo de reduccion:
-        </label>
-        <span id="valor">50</span> <span class="porcent-valor">%</span><br />
-        <input
-          type="range"
-          id="ahorro-bar"
-          name="energia"
-          min="0"
-          max="100"
-          value="50"
-        />
+        <div class="linkWiki"><p>Aprende mas sobre las emisiones de dióxido de carbono</p> <a href="https://es.wikipedia.org/wiki/Emisiones_de_di%C3%B3xido_de_carbono" target="_blank"> Ir </a></div>
       </section>
 
       <!---Consumo diario informe -->
@@ -122,10 +139,10 @@
         <div class="report">
           <div>
             <p class="report-title">Consumo diario</p>
-            <p><strong class="report-kw">4.88 </strong>kWh / día</p>
+            <p><strong class="report-kw">4.88 </strong> kWh / día</p>
             <p>Costo: <strong class="report-cost">$1.22/día</strong></p>
-            <p class="report-ahorro">
-              Ahorro estimado: <strong>$0.18/día</strong>
+            <p>
+              Costo mensual: <strong class="report-month">$0.18/día</strong>
             </p>
           </div>
         </div>
@@ -133,8 +150,12 @@
         <!--Seccion graficas-->
 
         <div class="chart">
-          <h3>Distribución por equipo</h3>
-          <canvas id="device-chart"></canvas>
+          <div class="chart-summary">
+            <strong>Total CO₂ mensual: </strong>
+            <span id="chart-co2-total">0 kg</span>
+          </div>
+
+          <div id="chart-list"></div>
         </div>
       </section>
 
@@ -190,13 +211,24 @@
     <!-- Pie de página -->
     <footer>
       <p>
-        <strong>EcoWatt</strong> Simulador de Consumo Energético Colombiano.
-        Aprende a ahorrar energía y reducir CO₂.
+        <a href="#"><strong>EcoWatt</strong></a> Simulador de Consumo Energético
+        Colombiano. Aprende a ahorrar energía y reducir CO₂.
       </p>
       <p><strong>© 2025 EcoWatt. Todos los derechos reservados.</strong></p>
     </footer>
 
     <!--Codigo js-->
+
+    <div id="modal-info" class="modal">
+      <div class="modal-content">
+        <p>
+          No puedes eliminar este dispositivo. Puedes
+          <strong>editar el nombre</strong> si lo deseas.
+        </p>
+        <button id="modal-edit">Editar nombre</button>
+        <button id="modal-close">Cerrar</button>
+      </div>
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>
