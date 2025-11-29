@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="icon/icon.png" type="image/x-icon" />
+    <!--Agregamos un icono-->
+    <title>EcoWatt App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Encabezado -->
+    <header>
+      <div class="logo">
+        <h1 id="logo-title">EcoWatt</h1>
+        <img class="logo-icon" src="icon/icon.png" alt="" />
+        <p>Simulador Colombiano de Consumo Energético y Eficiencia</p>
+      </div>
+
+      <!--Creamos el apartado del precio un label y un input conectados por "for" and "id" iguales-->
+      <div class="price-section">
+        <select name="" id="options-region">
+          <option value="">- Región -</option>
+          <option value="1200">Caribe</option>
+          <option value="1000">Andina</option>
+          <option value="1050">Pacifica</option>
+          <option value="1250">Amazonía</option>
+          <option value="1700">Orinoquía</option>
+          <option value="2500">Insular</option>
+        </select>
+        <label for="priceKw">Precio del kWh:</label>
+        <!--Selección segun región del precio-->
+
+        <div>
+          <input type="number" id="priceKw" value="900" />
+          <span>$/kWh</span>
+        </div>
+        <!--La etiqueta SPAN nos permite colocar texto inline, a diferencia de "p" que lo colocaria en BLOCK, es decir un salto de linea-->
+      </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+      <!--Equipos para apartatos por defecto 3 aparatos-->
+      <section class="devices">
+        <div class="title-devices">
+          <p>Tus equipos</p>
+          <button id="add-device">+ Añadir equipo</button>
+        </div>
+
+        <div class="device-item">
+          <div class="device-item-name">
+            <input
+              type="text"
+              class="device-item-name-title"
+              value="Refrigerador"
+            />
+            <p class="device-item-name-text">3.60 kWh/día — $3240/día</p>
+          </div>
+          <div class="device-inputs">
+            <input
+              type="number"
+              class="qty"
+              value="1"
+              min="1"
+              max="10"
+              title="Cantidad de equipos"
+            />
+            <label>und</label>
+
+            <input type="number" class="watt" value="100" placeholder="w" />
+            <label>w</label>
+            <input type="number" class="hours" value="24" min="1" max="24" />
+            <label>hrs/dia</label>
+
+            <div class="device-item-remove">
+              <button class="device-item-remove-btn">&#x2573;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="device-item">
+          <div class="device-item-name">
+            <input
+              type="text"
+              class="device-item-name-title"
+              placeholder="Escribe nombre del equipo"
+              value="Televisor"
+            />
+            <p class="device-item-name-text">3.60 kWh/día — $3240/día</p>
+          </div>
+
+          <div class="device-inputs">
+            <input type="number" class="qty" value="2" min="1" max="10" />
+            <label>und</label>
+
+            <input type="number" class="watt" value="100" placeholder="w" />
+            <label>w</label>
+
+            <input type="number" class="hours" value="4" min="1" max="24" />
+            <label>hrs/dia</label>
+
+            <div class="device-item-remove">
+              <button class="device-item-remove-btn">&#x2573;</button>
+            </div>
+          </div>
+        </div>
+        <div class="device-item">
+          <div class="device-item-name">
+            <input
+              type="text"
+              class="device-item-name-title"
+              value="Bombillo Led"
+            />
+            <p class="device-item-name-text">3.60 kWh/día — $3240/día</p>
+          </div>
+
+          <div class="device-inputs">
+            <input type="number" class="qty" value="6" min="1" max="10" />
+            <label>und</label>
+
+            <input type="number" class="watt" value="30" placeholder="w" />
+            <label>w</label>
+
+            <input type="number" class="hours" value="6" min="1" max="24" />
+            <label>hrs/dia</label>
+
+            <div class="device-item-remove">
+              <button class="device-item-remove-btn">&#x2573;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="linkWiki"><p>Aprende mas sobre las emisiones de dióxido de carbono</p> <a href="https://es.wikipedia.org/wiki/Emisiones_de_di%C3%B3xido_de_carbono" target="_blank"> Ir </a></div>
+      </section>
+
+      <!---Consumo diario informe -->
+      <section class="report-chart">
+        <div class="report">
+          <div>
+            <p class="report-title">Consumo diario</p>
+            <p><strong class="report-kw">4.88 </strong> kWh / día</p>
+            <p>Costo: <strong class="report-cost">$1.22/día</strong></p>
+            <p>
+              Costo mensual: <strong class="report-month">$0.18/día</strong>
+            </p>
+          </div>
+        </div>
+
+        <!--Seccion graficas-->
+
+        <div class="chart">
+          <div class="chart-summary">
+            <strong>Total CO₂ mensual: </strong>
+            <span id="chart-co2-total">0 kg</span>
+          </div>
+
+          <div id="chart-list"></div>
+        </div>
+      </section>
+
+      <!--Distribuccion por equipo-->
+
+      <!--Consejos EcoWatt-->
+      <section class="tips">
+        <div class="tip-item">
+          <p class="title-tip-item">Desconecta lo que no uses</p>
+          <img src="icon/enchufe.png" alt="" />
+          <p>
+            Cuando un electrodoméstico permanece conectado, incluso apagado,
+            sigue consumiendo energía. A esto se le conoce como
+            <strong>consumo fantasma.</strong> Desconectar cargadores,
+            televisores, microondas o parlantes cuando no los estés utilizando
+            puede reducir tu consumo mensual entre un <strong>5% y 10%.</strong>
+          </p>
+        </div>
+        <div class="tip-item">
+          <p class="title-tip-item">Aprovecha al máximo la luz natural</p>
+          <img src="icon/sol.png" alt="" />
+          <p>
+            Abrir cortinas y ubicar tu zona de trabajo cerca de una ventana
+            puede disminuir el uso de bombillas durante el día. Además, la luz
+            natural mejora tu concentración y reduce la fatiga visual. Si
+            necesitas iluminación adicional, utiliza lámparas LED de bajo
+            consumo.
+          </p>
+        </div>
+        <div class="tip-item">
+          <p class="title-tip-item">Regula la temperatura de tu nevera</p>
+          <img src="icon/frio.png" alt="" />
+          <p>
+            La nevera es uno de los electrodomésticos que más energía consume.
+            Mantén la temperatura entre 2°C y 5°C, y el congelador entre -17°C y
+            -15°C. Evita abrirla constantemente, pues cada apertura aumenta el
+            consumo al tener que recuperar la temperatura.
+          </p>
+        </div>
+        <div class="tip-item">
+          <p class="title-tip-item">Cambia a bombillas LED</p>
+          <img src="icon/led.png" alt="" />
+          <p>
+            Las bombillas LED consumen hasta un 85% menos que las incandescentes
+            y duran hasta 15 veces más. Aunque su costo inicial es mayor, el
+            ahorro a largo plazo es considerable. Prioriza reemplazar las
+            bombillas de las áreas más usadas de tu hogar.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>
+        <a href="#"><strong>EcoWatt</strong></a> Simulador de Consumo Energético
+        Colombiano. Aprende a ahorrar energía y reducir CO₂.
+      </p>
+      <p><strong>© 2025 EcoWatt. Todos los derechos reservados.</strong></p>
+    </footer>
+
+    <!--Codigo js-->
+
+    <div id="modal-info" class="modal">
+      <div class="modal-content">
+        <p>
+          No puedes eliminar este dispositivo. Puedes
+          <strong>editar el nombre</strong> si lo deseas.
+        </p>
+        <button id="modal-edit">Editar nombre</button>
+        <button id="modal-close">Cerrar</button>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

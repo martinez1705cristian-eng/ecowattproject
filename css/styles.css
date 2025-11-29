@@ -1,0 +1,466 @@
+/* ==== Estilos generales ==== */
+
+:root {
+  --color-main: #00bc7d;
+  --color-remove: red;
+}
+
+/* ==== Formateamos el documento ==== */
+
+* {
+  /* border:solid red 1px;  border:solid red 1px;  ==== testing ==== */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI";
+}
+
+/*Eliminamos todos lo estilos por defecto de los button inputs y select*/
+input,
+button,
+select {
+  outline: none;
+}
+
+h1,
+.logo-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 40px;
+}
+.logo-icon {
+  width: 60px;
+  height: 60px;
+}
+
+header {
+  background-color: var(
+    --color-main
+  ); /* ==== Damos color de fondo al header ==== */
+  color: white; /* ==== Damos color a la letra ==== */
+  display: flex; /* ==== Lo hacemos flexible ==== */
+  justify-content: space-between; /* ==== Lo distribuimos ==== */
+  padding: 1rem; /* ==== Damos un padding para separarlo del borde ==== */
+}
+
+.price-section {
+  padding: 0 2rem 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 20px;
+}
+
+#options-region {
+  width: 120px;
+  height: 2.5rem;
+  padding: 5px;
+  border: 0.09rem solid white;
+  border-radius: 5px;
+  background: white;
+  color: var(--color-main);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#options-region option {
+  color: white;
+  background-color: var(--color-main);
+}
+
+#options-region option:hover {
+  cursor: pointer;
+}
+
+#priceKw {
+  width: 6rem;
+  height: 2rem;
+  border-radius: 0.3rem;
+  background: none;
+  color: white;
+  border: solid white 0.09rem;
+  text-align: center; /* ==== Alineamos el texto ==== */
+  font-size: 20px; /* ==== Damos un tamaño al texto ==== */
+}
+
+main {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 7fr 3fr; /* 2 columnas */
+  gap: 1.2rem;
+}
+
+/* Seccion de eletrodomesticos*/
+
+.devices {
+  background-color: #f0fdf4;
+  border-radius: 15px;
+  padding: 20px;
+  height: 100%;
+}
+
+.title-devices {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.title-devices > p {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#add-device {
+  cursor: pointer;
+  width: 10rem;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--color-main);
+  color: white;
+  border: none;
+  text-align: center; /* ==== Alineamos el texto ==== */
+  font-size: 20px; /* ==== Damos un tamaño al texto ==== */
+}
+
+.device-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 10px;
+  border: solid rgb(209, 209, 209) 1px;
+}
+
+.device-item-name-title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+}
+
+.device-item-name-text {
+  font-size: 18px;
+  color: gray;
+}
+
+.device-inputs > input {
+  width: 100px;
+  color: rgb(69, 69, 69);
+  font-size: 18px;
+  text-align: center;
+  height: 30px;
+  border-radius: 5px;
+  border: solid rgb(209, 209, 209) 1px;
+}
+
+.device-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.device-inputs .qty {
+  width: 60px;
+}
+
+.device-inputs label {
+  color: gray;
+  font-size: 18px;
+}
+
+/*Estilos boton para remover device*/
+
+.device-item-remove-btn {
+  border: none;
+  color: red;
+  background: none;
+  font-size: 1rem; /* ==== Damos un tamaño al texto ==== */
+  transition: transform 0.2s ease;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.device-item-remove-btn:hover {
+  transform: scale(1.3);
+}
+
+/* FIN   Seccion de eletrodomesticos*/
+
+/*Seccion de report chart*/
+
+.report-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-height: 0;
+}
+
+.chart {
+  min-height: 0;
+}
+
+.report-kw {
+  font-size: 40px;
+  color: #00bc7d !important;
+}
+
+.report div > p {
+  color: gray;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.report div strong {
+  color: black;
+}
+
+.report-month {
+  color: rgb(227, 20, 20) !important;
+}
+
+.report-month strong {
+  color: rgb(227, 20, 20) !important;
+}
+
+.report,
+.chart {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  border: solid rgb(209, 209, 209) 1px;
+}
+
+/* Consejos*/
+
+.tips {
+  padding: 15px;
+  grid-column: 1 / -1;
+  background-color: #f0fdf4;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.tip-item {
+  width: 25%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  border: solid rgb(209, 209, 209) 2px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.5s ease, border 0.5s ease;
+}
+
+.tip-item:hover {
+  transform: translatey(-7px);
+  border: solid var(--color-main) 2px;
+}
+
+.tip-item > img {
+  width: 50px;
+  height: 50px;
+}
+
+.title-tip-item {
+  color: var(--color-main);
+  font-weight: 650;
+  text-align: center;
+}
+
+/*Estilos footer*/
+
+footer {
+  background-color: var(--color-main);
+  color: white;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+/* diseño responsivo */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .report-chart {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    flex-direction: row;
+  }
+
+  .report {
+    height: 100%;
+  }
+  .chart {
+    height: 100%;
+    margin: 0;
+  }
+}
+
+.device-tooltip {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  background: #4aa3ff;
+  color: white;
+  padding: 3px 8px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transform: translateY(0);
+
+  /* Aquí empieza el parpadeo */
+  animation: blink 1.2s infinite ease-in-out;
+}
+
+.device-tooltip.hide {
+  opacity: 0;
+  transform: translateY(-5px);
+  animation: none; /* ❌ Detiene el parpadeo */
+}
+
+/* Animación suave */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.device-item-name {
+  position: relative;
+}
+
+.chart-summary {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #1a4d2e;
+}
+
+#chart-list {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chart-item {
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.chart-item-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.chart-item p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+}
+
+/* Modal general */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  font-family: sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones del modal */
+.modal-content button {
+  margin: 10px 5px 0 5px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+/* Botón Cerrar */
+#modal-close {
+  background-color: #888;
+  color: #fff;
+}
+
+#modal-close:hover {
+  background-color: #555;
+}
+
+/* Botón Editar Nombre */
+#modal-edit {
+  background-color: #388e3c; /* verde destacado */
+  color: #fff;
+}
+
+#modal-edit:hover {
+  background-color: #2e7d32; /* verde más oscuro al pasar el mouse */
+  transform: scale(1.05); /* pequeño efecto de zoom */
+}
+
+.linkWiki {
+  color: white;
+  border-radius: 5px;
+  background-color: #8c8c8c;
+  padding: 15px;
+  display: flex;
+  font-size: 1.4rem;
+  justify-content: space-between;
+}
+
+.linkWiki a {
+  text-align: center;
+  height: 35px;
+  width: 80px;
+  background-color: var(--color-main);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+
+}
