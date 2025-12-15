@@ -10,15 +10,17 @@
   </head>
   <body>
     <!-- Encabezado -->
-    <header class="header-main">
+    <header class="header-main flex flex-between">
       <div class="logo">
         <h1 id="logo-title">EcoWatt</h1>
         <img class="logo-icon" src="icon/icon.png" alt="" />
-        <p class="slogan">Simulador Colombiano de Consumo Energético y Eficiencia</p>
+        <p class="slogan">
+          Simulador Colombiano de Consumo Energético y Eficiencia
+        </p>
       </div>
 
       <!--Creamos el apartado del precio un label y un input conectados por "for" and "id" iguales-->
-      <div class="price-section">
+      <div class="price-section flex flex-center flex-column">
         <select name="" id="options-region">
           <option value="">- Región -</option>
           <option value="1200">Caribe</option>
@@ -28,10 +30,10 @@
           <option value="1700">Orinoquía</option>
           <option value="2500">Insular</option>
         </select>
-        <label for="priceKw">Precio del kWh:</label>
+        <label for="priceKw">Precio kWh:</label>
         <!--Selección segun región del precio-->
 
-        <div class="priceKw-section">
+        <div class="priceKw-section flex flex-center">
           <input type="number" id="priceKw" value="900" />
           <span>$/kWh</span>
         </div>
@@ -40,90 +42,136 @@
     </header>
 
     <!-- Contenido principal -->
-    <main>
+    <main class="container-main flex">
       <!--Equipos para apartatos por defecto 3 aparatos-->
       <section class="devices">
-        <div class="title-devices">
-          <p>Tus equipos</p>
+        <div class="title-devices-container flex flex-between">
+          <p class="devices-title">Tus equipos</p>
           <button id="add-device">+ Añadir equipo</button>
         </div>
-
-        <div class="device-item">
-          <div class="device-item-name">
-            <input
-              type="text"
-              class="device-item-name-title"
-              value="Refrigerador"
-            />
-            <p class="device-item-name-text">3.60 kWh/día — $3240/día</p>
+        <div class="device-item flex flex-between">
+          <div class="device-item-name-container flex flex-center">
+            <div class="device-item-name">
+              <input
+                type="text"
+                class="device-item-name-title"
+                value="Bombillo Led"
+              />
+              <p class="device-item-name-text"></p>
+            </div>
           </div>
-          <div class="device-inputs">
+
+          <div class="device-inputs flex flex-center flex-between">
             <input
               type="number"
-              class="qty"
-              value="1"
+              class="qty input-device"
+              value="6"
               min="1"
               max="10"
-              title="Cantidad de equipos"
             />
-            <label>und</label>
-
-            <input type="number" class="watt" value="100" placeholder="w" />
-            <label>w</label>
-            <input type="number" class="hours" value="24" min="1" max="24" />
-            <label>hrs/dia</label>
-
-            <div class="device-item-remove">
-              <button class="device-item-remove-btn">&#x2573;</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="device-item">
-          <div class="device-item-name">
+            <label class="label-input-device">und</label>
             <input
-              type="text"
-              class="device-item-name-title"
-              placeholder="Escribe nombre del equipo"
-              value="Televisor"
+              type="number"
+              class="watt input-device"
+              value="30"
+              placeholder="w"
             />
-            <p class="device-item-name-text">3.60 kWh/día — $3240/día</p>
-          </div>
+            <label class="label-input-device">w</label>
 
-          <div class="device-inputs">
-            <input type="number" class="qty" value="2" min="1" max="10" />
-            <label>und</label>
-
-            <input type="number" class="watt" value="100" placeholder="w" />
-            <label>w</label>
-
-            <input type="number" class="hours" value="4" min="1" max="24" />
-            <label>hrs/dia</label>
-
-            <div class="device-item-remove">
-              <button class="device-item-remove-btn">&#x2573;</button>
-            </div>
-          </div>
-        </div>
-        <div class="device-item">
-          <div class="device-item-name">
             <input
-              type="text"
-              class="device-item-name-title"
-              value="Bombillo Led"
+              type="number"
+              class="hours input-device"
+              value="6"
+              min="1"
+              max="24"
             />
-            <p class="device-item-name-text">3.60 kWh/día — $3240/día</p>
+            <label class="label-input-device">hrs/dia</label>
+
+            <div class="device-item-remove">
+              <button class="device-item-remove-btn">&#x2573;</button>
+            </div>
+          </div>
+        </div>
+        <div class="device-item flex flex-between">
+          <div class="device-item-name-container flex flex-center">
+            <div class="device-item-name">
+              <input
+                type="text"
+                class="device-item-name-title"
+                value="Bombillo Led"
+              />
+              <p class="device-item-name-text"></p>
+            </div>
           </div>
 
-          <div class="device-inputs">
-            <input type="number" class="qty" value="6" min="1" max="10" />
-            <label>und</label>
+          <div class="device-inputs flex flex-center flex-between">
+            <input
+              type="number"
+              class="qty input-device"
+              value="6"
+              min="1"
+              max="10"
+            />
+            <label class="label-input-device">und</label>
+            <input
+              type="number"
+              class="watt input-device"
+              value="30"
+              placeholder="w"
+            />
+            <label class="label-input-device">w</label>
 
-            <input type="number" class="watt" value="30" placeholder="w" />
-            <label>w</label>
+            <input
+              type="number"
+              class="hours input-device"
+              value="6"
+              min="1"
+              max="24"
+            />
+            <label class="label-input-device">hrs/dia</label>
 
-            <input type="number" class="hours" value="6" min="1" max="24" />
-            <label>hrs/dia</label>
+            <div class="device-item-remove">
+              <button class="device-item-remove-btn">&#x2573;</button>
+            </div>
+          </div>
+        </div>
+        <div class="device-item flex flex-between">
+          <div class="device-item-name-container flex flex-center">
+            <div class="device-item-name">
+              <input
+                type="text"
+                class="device-item-name-title"
+                value="Bombillo Led"
+              />
+              <p class="device-item-name-text"></p>
+            </div>
+          </div>
+
+          <div class="device-inputs flex flex-center flex-between">
+            <input
+              type="number"
+              class="qty input-device"
+              value="6"
+              min="1"
+              max="10"
+            />
+            <label class="label-input-device">und</label>
+            <input
+              type="number"
+              class="watt input-device"
+              value="30"
+              placeholder="w"
+            />
+            <label class="label-input-device">w</label>
+
+            <input
+              type="number"
+              class="hours input-device"
+              value="6"
+              min="1"
+              max="24"
+            />
+            <label class="label-input-device">hrs/dia</label>
 
             <div class="device-item-remove">
               <button class="device-item-remove-btn">&#x2573;</button>
@@ -131,11 +179,19 @@
           </div>
         </div>
 
-        <div class="linkWiki"><p>Aprende mas sobre las emisiones de dióxido de carbono</p> <a href="https://es.wikipedia.org/wiki/Emisiones_de_di%C3%B3xido_de_carbono" target="_blank"> Ir </a></div>
+        <div class="linkWiki">
+          <p>Aprende mas sobre las emisiones de dióxido de carbono</p>
+          <a
+            href="https://es.wikipedia.org/wiki/Emisiones_de_di%C3%B3xido_de_carbono"
+            target="_blank"
+          >
+            Ir
+          </a>
+        </div>
       </section>
 
       <!---Consumo diario informe -->
-      <section class="report-chart">
+      <section class="report-chart flex flex-column">
         <div class="report">
           <div>
             <p class="report-title">Consumo diario</p>
@@ -162,54 +218,53 @@
       <!--Distribuccion por equipo-->
 
       <!--Consejos EcoWatt-->
-      <section class="tips">
-        <div class="tip-item">
-          <p class="title-tip-item">Desconecta lo que no uses</p>
-          <img src="icon/enchufe.png" alt="" />
-          <p>
-            Cuando un electrodoméstico permanece conectado, incluso apagado,
-            sigue consumiendo energía. A esto se le conoce como
-            <strong>consumo fantasma.</strong> Desconectar cargadores,
-            televisores, microondas o parlantes cuando no los estés utilizando
-            puede reducir tu consumo mensual entre un <strong>5% y 10%.</strong>
-          </p>
-        </div>
-        <div class="tip-item">
-          <p class="title-tip-item">Aprovecha al máximo la luz natural</p>
-          <img src="icon/sol.png" alt="" />
-          <p>
-            Abrir cortinas y ubicar tu zona de trabajo cerca de una ventana
-            puede disminuir el uso de bombillas durante el día. Además, la luz
-            natural mejora tu concentración y reduce la fatiga visual. Si
-            necesitas iluminación adicional, utiliza lámparas LED de bajo
-            consumo.
-          </p>
-        </div>
-        <div class="tip-item">
-          <p class="title-tip-item">Regula la temperatura de tu nevera</p>
-          <img src="icon/frio.png" alt="" />
-          <p>
-            La nevera es uno de los electrodomésticos que más energía consume.
-            Mantén la temperatura entre 2°C y 5°C, y el congelador entre -17°C y
-            -15°C. Evita abrirla constantemente, pues cada apertura aumenta el
-            consumo al tener que recuperar la temperatura.
-          </p>
-        </div>
-        <div class="tip-item">
-          <p class="title-tip-item">Cambia a bombillas LED</p>
-          <img src="icon/led.png" alt="" />
-          <p>
-            Las bombillas LED consumen hasta un 85% menos que las incandescentes
-            y duran hasta 15 veces más. Aunque su costo inicial es mayor, el
-            ahorro a largo plazo es considerable. Prioriza reemplazar las
-            bombillas de las áreas más usadas de tu hogar.
-          </p>
-        </div>
-      </section>
     </main>
+    <section class="tips flex flex-center">
+      <div class="tip-item flex flex-column flex-center">
+        <p class="title-tip-item">Desconecta lo que no uses</p>
+        <img src="icon/enchufe.png" alt="" />
+        <p>
+          Cuando un electrodoméstico permanece conectado, incluso apagado, sigue
+          consumiendo energía. A esto se le conoce como
+          <strong>consumo fantasma.</strong> Desconectar cargadores,
+          televisores, microondas o parlantes cuando no los estés utilizando
+          puede reducir tu consumo mensual entre un <strong>5% y 10%.</strong>
+        </p>
+      </div>
+      <div class="tip-item  flex flex-column flex-center">
+        <p class="title-tip-item">Aprovecha al máximo la luz natural</p>
+        <img src="icon/sol.png" alt="" />
+        <p>
+          Abrir cortinas y ubicar tu zona de trabajo cerca de una ventana puede
+          disminuir el uso de bombillas durante el día. Además, la luz natural
+          mejora tu concentración y reduce la fatiga visual. Si necesitas
+          iluminación adicional, utiliza lámparas LED de bajo consumo.
+        </p>
+      </div>
+      <div class="tip-item flex flex-center flex-column">
+        <p class="title-tip-item">Regula la temperatura de tu nevera</p>
+        <img src="icon/frio.png" alt="" />
+        <p>
+          La nevera es uno de los electrodomésticos que más energía consume.
+          Mantén la temperatura entre 2°C y 5°C, y el congelador entre -17°C y
+          -15°C. Evita abrirla constantemente, pues cada apertura aumenta el
+          consumo al tener que recuperar la temperatura.
+        </p>
+      </div>
+      <div class="tip-item flex flex-column flex-center">
+        <p class="title-tip-item">Cambia a bombillas LED</p>
+        <img src="icon/led.png" alt="" />
+        <p>
+          Las bombillas LED consumen hasta un 85% menos que las incandescentes y
+          duran hasta 15 veces más. Aunque su costo inicial es mayor, el ahorro
+          a largo plazo es considerable. Prioriza reemplazar las bombillas de
+          las áreas más usadas de tu hogar.
+        </p>
+      </div>
+    </section>
 
     <!-- Pie de página -->
-    <footer>
+    <footer class="footer-container flex flex-center flex-column">
       <p>
         <a href="#"><strong>EcoWatt</strong></a> Simulador de Consumo Energético
         Colombiano. Aprende a ahorrar energía y reducir CO₂.
