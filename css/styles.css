@@ -142,6 +142,11 @@ h1,
   color: gray;
 }
 
+.device-inputs {
+  display: flex;
+  gap: 10px;
+}
+
 .qty {
   width: 40px;
 }
@@ -157,7 +162,6 @@ h1,
 }
 
 .label-input-device {
-  margin: 0 1rem;
   color: gray;
   font-size: 18px;
 }
@@ -185,10 +189,10 @@ h1,
 .report-chart {
   flex: 3;
   align-items: center;
-  gap: 20px;  
+  gap: 20px;
 }
 
-.chart{
+.chart {
   flex: 1; /*ocupa todo el alto disponible del padre*/
 }
 
@@ -281,18 +285,7 @@ h1,
 }
 
 /* diseño responsivo */
-@media (max-width: 720px) {
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo-icon {
-    width: 50px;
-    height: 50px;
-  }
-
+@media (max-width: 1050px) {
   .slogan {
     display: none;
   }
@@ -302,57 +295,72 @@ h1,
   }
 
   .header-main {
-    padding: 10px 20px;
     width: 100%;
+    padding: 0.8rem 1.2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  .price-section > * {
-    margin: 0;
-  }
   .price-section {
     padding: 0;
-    width: 100%;
-    display: flex;
-    gap: 20px;
+    gap: 15px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 0.6rem;
   }
 
   .priceKw-section > span {
     display: none;
   }
 
-  .main {
+  .container-main {
+    width: 100%;
+    padding: 1rem 0.5rem;
     flex-direction: column;
-  }
-
-  .device-item {
-    flex-direction: column;
-    outline: 2px solid;
   }
 
   .device-item-name-container {
     justify-content: space-between;
   }
-  .tips {
-    flex-direction: column;
-  }
-  .tip-item {
-    width: 100%;
-  }
 
-  .report-chart {
+  .tips {
+    margin: 1.2rem 0.5rem;
     flex-direction: column;
   }
-  main {
-    display: flex;
+  .device-inputs {
+    justify-content: flex-start;
+  }
+}
+
+.container-qty-watts,
+.container-horus-remove-btn {
+  gap: 10px;
+}
+
+@media (max-width: 700px) {
+  .device-item {
     flex-direction: column;
-    flex: 1;
+  }
+}
+
+@media (max-width: 460px) {
+  .device-inputs {
+    flex-direction: column;
+  }
+  .container-qty-watts,
+  .container-horus-remove-btn {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: left;
+  }
+}
+@media (max-width: 460px) {
+  .title-devices-container{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 }
 
@@ -390,9 +398,6 @@ h1,
   50% {
     opacity: 0;
   }
-}
-.device-item-name {
-  position: relative;
 }
 
 .chart-summary {
